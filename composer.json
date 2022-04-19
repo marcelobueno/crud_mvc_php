@@ -1,0 +1,32 @@
+{
+    "name": "marcelobueno/crud_produtos_php",
+    "description": "Um crud simples em MVC utilizando sistema de rotas e abstração do banco de dados",
+    "type": "project",
+    "require": {
+        "coffeecode/router": "dev-master",
+        "coffeecode/datalayer": "dev-master",
+        "league/plates": "v3.x-dev"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Source\\":"src/"
+        },
+        "files": [
+            "src/Config.php",
+            "app/Controllers/Controller.php",
+            "app/Controllers/CategoryController.php",
+            "app/Controllers/NavigationController.php",
+            "app/Controllers/ProductController.php",
+            "app/Models/Category.php",
+            "app/Models/Product.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Marcelo Bueno",
+            "email": "marcelo.f.bueno@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
