@@ -6,7 +6,7 @@ class NavigationController extends Controller
 {
     public function index($data)
     {
-        echo $this->templates->render('home', ['data' => $data]);
+        echo $this->view->render('home', ['data' => $data]);
     }
 
     public function error($data)

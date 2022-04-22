@@ -16,8 +16,8 @@
             <div class="menu-list">
                 <ul>
                     <li><a href="<?=URL_BASE?>/">Home</a></li>
-                    <li><a href="<?=URL_BASE?>/products">Produtos</a></li>
-                    <li><a href="<?=URL_BASE?>/categories">Categorias</a></li>
+                    <li><a href="<?=URL_BASE?>/products">Products</a></li>
+                    <li><a href="<?=URL_BASE?>/categories">Categories</a></li>
                 </ul>
             </div>
         </div>

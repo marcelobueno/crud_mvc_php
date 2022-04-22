@@ -13,6 +13,7 @@ $router->get('/', "NavigationController:index");
 
 $router->group('products');
 $router->get('/', "ProductController:index");
+$router->get('/store', "ProductController:create");
 
 $router->group('categories');
 $router->get('/', "CategoryController:index");

@@ -4,11 +4,11 @@ namespace App\Models;
 
 use CoffeeCode\DataLayer\DataLayer;
 
-class Product extends DataLayer
+class CategoryProduct extends DataLayer
 {
     public function __construct()
     {
         //string "TABLE_NAME", array ["REQUIRED_FIELD_1", "REQUIRED_FIELD_2"], string "PRIMARY_KEY", bool "TIMESTAMPS"
-        parent::__construct("products", ["name", "sku", "description", "quantity", "price"]);
+        parent::__construct("categories_products", ['product_id', 'category_id']);
     }
 }

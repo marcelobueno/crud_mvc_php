@@ -6,10 +6,10 @@ use League\Plates\Engine;
 
 class Controller 
 {
-    public $templates;
+    public $view;
 
     public function __construct()
     {
-        $this->templates = new Engine(__DIR__ . '/../../public/Views');
+        $this->view = new Engine(__DIR__ . '/../../public/Views');
     }
 }
