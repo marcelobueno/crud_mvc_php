@@ -17,13 +17,13 @@ class ProductController extends Controller
     public function create($data)
     {
         $product = new Product();
-        $product->name = "Produto teste";
-        $product->sku = "25569-7845";
-        $product->description = "Produto usado para teste de persistencia";
-        $product->quantity = 100;
-        $product->price = 10.50;
+        $product->name = $data['name'];
+        $product->sku = $data['sku'];
+        $product->description = $data['description'];
+        $product->quantity = $data['quantity'];
+        $product->price = $data['price'];
         $product->save();
 
-        var_dump($product);
+        header('Location: '.URL_BASE.'/products');
     }
 }

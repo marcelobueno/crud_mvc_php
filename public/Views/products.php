@@ -3,7 +3,7 @@
     <div class="container col">
         <div class="d-flex align-items-center justify-content-between padding-y">
             <h1 class="page-title">Products</h1>
-            <a class="btn" href="#">New product</a>
+            <a class="btn" id="new-product">New product</a>
         </div>
         <div class="table-area">
             <table>
@@ -36,6 +36,40 @@
                     ?>
                 </tbody>
             </table>
+        </div>
+    </div>
+    <div class="modal-area">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">New product</div>
+                <div class="modal-close"><i title="Fechar" class="bi bi-x-circle-fill"></i></div>
+            </div>
+            <div class="modal-body">
+                <form action="<?=URL_BASE?>/products/store" method="post">
+                    <input type="hidden" name="_method" value="POST">
+                    <label for="name">
+                        Product name
+                        <input type="text" name="name" id="name">
+                    </label>
+                    <label for="sku">
+                        Product sku
+                        <input type="text" name="sku" id="sku">
+                    </label>
+                    <label for="description">
+                        Description
+                        <textarea name="description" id="description"></textarea>
+                    </label>
+                    <label for="quantity">
+                        Quantity
+                        <input type="number" name="quantity" id="quantity" step="1">
+                    </label>
+                    <label for="price">
+                        Price $
+                        <input type="number" name="price" id="price" step="0.01">
+                    </label>
+                    <button class="btn" type="submit">Save</button>
+                </form>
+            </div>
         </div>
     </div>
     

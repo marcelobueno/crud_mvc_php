@@ -235,6 +235,7 @@ body {
     background: linear-gradient(45deg, #00b7ff , #00ff80);
     color: var(--background-color);
     font-weight: 700;
+    cursor: pointer;
 }
 
 .page-title {
@@ -253,6 +254,91 @@ body {
     height: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+/* Modal */
+.modal-area {
+    display: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background-color: #141e1e44;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    width: 50vw;
+    background-color: var(--background-color);
+    border-radius: 6px;
+}
+
+.modal-header {
+    display: flex;
+    height: 50px;
+    width: 100%;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background-color: var(--title-main-color);
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.modal-title,
+.modal-close {
+    font-weight: 900;
+    color: var(--background-color);
+}
+
+.modal-close {
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Form */
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+form input, 
+form textarea {
+    display: flex;
+    margin: 10px 0;;
+    height: 30px;
+    width: 100%;
+    border: 1px solid #ccc;
+    outline: 0;
+    padding: 5px;
+}
+
+form textarea {
+    height: 60px;
+}
+
+form button[type=submit] {
+    width: 100px;
+    border: 0;
+    align-self: flex-end;
+    margin-top: 10px;
+    justify-content: center;
+    cursor: pointer;
 }
 
 /* Footer */
