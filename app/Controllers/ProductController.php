@@ -26,4 +26,37 @@ class ProductController extends Controller
 
         header('Location: '.URL_BASE.'/products');
     }
+
+    public function edit($data)
+    {
+        $model = new Product();
+        $product = $model->findById($data['id'])->data();
+
+        echo $this->view->render('edit_product', ['data' => $data, 'product' => $product]);
+    }
+
+    public function update($data)
+    {
+        $model = new Product();
+        $product = $model->findById($data['product_id']);
+
+        $product->name = $data['name'];
+        $product->sku = $data['sku'];
+        $product->description = $data['description'];
+        $product->quantity = $data['quantity'];
+        $product->price = $data['price'];
+        $product->save();
+
+        header('Location: '.URL_BASE.'/products');
+    }
+
+    public function delete($data)
+    {
+        $model = new Product();
+        $product = $model->findById($data['product_id']);
+
+        $product->destroy();
+
+        header('Location: '.URL_BASE.'/products');
+    }
 }

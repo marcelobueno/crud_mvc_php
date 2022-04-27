@@ -18,8 +18,10 @@
             "app/Controllers/CategoryController.php",
             "app/Controllers/NavigationController.php",
             "app/Controllers/ProductController.php",
+            "app/Controllers/CategoryProductController.php",
             "app/Models/Category.php",
-            "app/Models/Product.php"
+            "app/Models/Product.php",
+            "app/Models/CategoryProduct.php"
         ]
     },
     "authors": [

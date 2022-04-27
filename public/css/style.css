@@ -37,6 +37,10 @@ body {
     margin: auto;
 }
 
+.min-h-80 {
+    min-height: 80vh;
+}
+
 /* Menu */
 .menu--bar {
     display: flex;
@@ -194,7 +198,7 @@ body {
 }
 
 .bg-red {
-    background-color: #FF0000 !important;
+    background-color: #ce2424 !important;
 }
 
 /* Body */
@@ -233,6 +237,28 @@ body {
     padding: 10px;
     border-radius: 6px;
     background: linear-gradient(45deg, #00b7ff , #00ff80);
+    color: var(--background-color);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-red {
+    text-decoration: none;
+    display: flex;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #ce2424 !important;
+    color: var(--background-color);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-green {
+    text-decoration: none;
+    display: flex;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #696969 !important;
     color: var(--background-color);
     font-weight: 700;
     cursor: pointer;
@@ -277,6 +303,24 @@ body {
     width: 50vw;
     background-color: var(--background-color);
     border-radius: 6px;
+}
+
+.modal-small {
+    height: 30vh;
+    width: 25vw;
+}
+
+.delete-options {
+    align-self: end;
+    margin-top: 20px;
+}
+
+.delete-options a {
+    margin-right: 10px;
+}
+
+.delete-options a:last-child {
+    margin-right: 0;
 }
 
 .modal-header {
@@ -330,6 +374,7 @@ form textarea {
 
 form textarea {
     height: 60px;
+    resize: none;
 }
 
 form button[type=submit] {
