@@ -21,6 +21,9 @@ $router->delete('/delete', "ProductController:delete");
 $router->group('categories');
 $router->get('/', "CategoryController:index");
 
+$router->group('category_product');
+$router->get('/', "CategoryProductController:add");
+
 $router->group("ooops");
 $router->get("/{errcode}", "NavigationController:error");
 
