@@ -27,6 +27,13 @@
                 Preço R$
                 <input type="number" name="price" id="price" step="0.01" value="<?=$product->price?>" required>
             </label>
+            <br>
+            <hr>
+            <h5>Categorias</h5>
+            <br>
+            <select name="categories[]" id="categories">
+                
+            </select>
             <button class="btn" type="submit">Salvar</button>
         </form>
     </div>

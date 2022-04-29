@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\Category;
+use App\Models\CategoryProduct;
 use App\Models\Product;
 
 class ProductController extends Controller
@@ -32,7 +34,19 @@ class ProductController extends Controller
         $model = new Product();
         $product = $model->findById($data['id'])->data();
 
-        echo $this->view->render('edit_product', ['data' => $data, 'product' => $product]);
+        $model = new CategoryProduct();
+        $params = http_build_query(["product_id" => $product->id]);
+        $productCategories = $model->find('product_id = :product_id', $params)->fetch(true);
+
+        $model = new Category();
+        $categories = $model->find()->fetch(true);
+
+        echo $this->view->render('edit_product', [
+            'data' => $data, 
+            'product' => $product, 
+            'categories' => $categories,
+            'productCategories' => $productCategories
+        ]);
     }
 
     public function update($data)
