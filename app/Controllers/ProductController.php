@@ -51,6 +51,7 @@ class ProductController extends Controller
 
     public function update($data)
     {
+        var_dump($data); die;
         $model = new Product();
         $product = $model->findById($data['product_id']);
 

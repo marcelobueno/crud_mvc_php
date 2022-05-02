@@ -1,6 +1,6 @@
 <?php include_once(__DIR__.'/layouts/header.php'); ?>
 
-    <div class="container col min-h-80">
+    <div class="container col">
         <div class="d-flex align-items-center justify-content-between padding-y">
             <h1 class="page-title">Editando - <?=$product->name?></h1>
         </div>
@@ -27,13 +27,33 @@
                 Preço R$
                 <input type="number" name="price" id="price" step="0.01" value="<?=$product->price?>" required>
             </label>
-            <br>
-            <hr>
-            <h5>Categorias</h5>
-            <br>
-            <select name="categories[]" id="categories">
-                
-            </select>
+            <h1 class="page-subtitle">Categorias</h1>
+            <div class="categories-area">
+                <?php 
+                    foreach ($categories as $category)
+                    { ?>
+                        <div class="category-item">
+                            <input type="checkbox" 
+                                name="category<?=$category->id?>" 
+                                id="category<?=$category->id?>" 
+                                value="<?=$category->id?>" 
+                                <?php 
+                                    if ($productCategories != null)
+                                    {
+                                        foreach ($productCategories as $productCategory)
+                                        {
+                                            if ($productCategory->category_id == $category->id){
+                                                echo 'checked';
+                                            }
+                                        }
+                                    }
+                                ?>
+                                >
+                            <label for="category<?=$category->id?>"><?=$category->name?></label>
+                        </div>
+                    <?php }
+                ?>
+            </div>
             <button class="btn" type="submit">Salvar</button>
         </form>
     </div>
