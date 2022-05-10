@@ -334,29 +334,36 @@ body {
     z-index: 2;
     align-items: center;
     justify-content: center;
+    text-transform: capitalize;
 }
 
 .modal {
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    height: auto;
     width: 50vw;
     background-color: var(--background-color);
     border-radius: 6px;
 }
 
 .modal-small {
-    height: 30vh;
-    width: 25vw;
+    height: 200px;
+    width: 400px;
 }
 
 .delete-options {
     align-self: end;
-    margin-top: 20px;
+    height: 35px;
+    margin-top: 40px;
+    align-items: baseline;
 }
 
 .delete-options a {
     margin-right: 10px;
+}
+
+.m-0 {
+    margin: 0 !important;
 }
 
 .delete-options a:last-child {
@@ -389,7 +396,6 @@ body {
 .modal-body {
     padding: 10px;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 

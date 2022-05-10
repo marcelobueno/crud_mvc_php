@@ -16,21 +16,39 @@ class CategoryController extends Controller
 
     public function create($data)
     {
-        # code...
+        $category = new Category();
+        $category->name = $data['name'];
+        $category->save();
+
+        header('Location: '.URL_BASE.'/categories');
     }
 
     public function edit($data)
     {
-        # code...
+        $model = new Category();
+        $category = $model->findById($data['id']);
+
+        echo $this->view->render('edit_category', ['data' => $data, 'category' => $category]);
     }
 
     public function update($data)
     {
-        # code...
+        $model = new Category();
+        $category = $model->findById($data['category_id']);
+
+        $category->name = $data['name'];
+        $category->save();
+
+        header('Location: '.URL_BASE.'/categories');
     }
 
     public function delete($data)
     {
-        # code...
+        $model = new Category();
+        $category = $model->findById($data['category_id']);
+
+        $category->destroy();
+
+        header('Location: '.URL_BASE.'/categories');
     }
 }

@@ -20,6 +20,10 @@ $router->delete('/delete', "ProductController:delete");
 
 $router->group('categories');
 $router->get('/', "CategoryController:index");
+$router->post('/store', "CategoryController:create");
+$router->get('/edit/{id}', "CategoryController:edit");
+$router->put('/update', "CategoryController:update");
+$router->delete('/delete', "CategoryController:delete");
 
 $router->group('category_product');
 $router->get('/', "CategoryProductController:add");

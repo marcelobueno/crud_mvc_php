@@ -3,7 +3,7 @@
     <div class="container col min-h-80">
         <div class="d-flex align-items-center justify-content-between padding-y">
             <h1 class="page-title">Produtos</h1>
-            <a class="btn" id="new-product">Novo produto</a>
+            <a class="btn" onclick="showModal('modalNewProduct')">Novo produto</a>
         </div>
         <div class="table-area">
             <table>
@@ -32,7 +32,7 @@
                                         href="#"><i class="bi bi-search"></i></a>
                                     <a class="action-btn bg-blue" title="Editar" 
                                         href="<?=URL_BASE?>/products/edit/<?=$product->id?>"><i class="bi bi-pencil"></i></a>
-                                    <a class="action-btn bg-red" title="Deletar" 
+                                    <a class="action-btn bg-red m-0" title="Deletar" 
                                         onclick="showModal('modalDeleteProduct<?=$product->id?>')"  
                                         href="#"><i class="bi bi-trash2"></i></a>
                                     <div class="modal-area" id="modalDeleteProduct<?=$product->id?>">
@@ -73,7 +73,7 @@
         <div class="modal">
             <div class="modal-header">
                 <div class="modal-title">Novo produto</div>
-                <div class="modal-close" id="closeNewProduct"><i title="Fechar" class="bi bi-x-circle-fill"></i></div>
+                <div class="modal-close" onclick="hideModal('modalNewProduct')"><i title="Fechar" class="bi bi-x-circle-fill"></i></div>
             </div>
             <div class="modal-body">
                 <form action="<?=URL_BASE?>/products/store" method="post">
