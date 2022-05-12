@@ -29,7 +29,7 @@
                                 <td class="max-120">R$ <?= number_format($product->price, 2, ',', '.') ?></td>
                                 <td class="max-200">
                                     <a class="action-btn bg-green" title="Visualizar" 
-                                        href="#"><i class="bi bi-search"></i></a>
+                                        href="<?=URL_BASE?>/products/show/<?=$product->id?>"><i class="bi bi-search"></i></a>
                                     <a class="action-btn bg-blue" title="Editar" 
                                         href="<?=URL_BASE?>/products/edit/<?=$product->id?>"><i class="bi bi-pencil"></i></a>
                                     <a class="action-btn bg-red m-0" title="Deletar" 

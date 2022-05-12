@@ -2,69 +2,64 @@
 
 namespace App\Controllers;
 
-use App\Models\Category;
 use App\Models\CategoryProduct;
-use App\Models\Product;
 
 class CategoryProductController extends Controller 
 {
-    public static function add($data)
+    /**
+     * Tem como objetivo sincronizar as informações de relacionamento entre Produtos e Categorias.
+     */
+    public function sync($data)
     {
-        # code...
-    }
+        var_dump($data);
 
-    public static function remove($data)
-    {
-        # code...
+        $model = new CategoryProduct();
+        $params = http_build_query(["pid" => $data['product_id']]);
+        $productCategories = $model->find('product_id = :pid', $params)->fetch(true);
+
+        if ($productCategories != null)
+        {
+            /**
+             * Remove todos os registros atuais.
+             */
+            foreach ($productCategories as $cP)
+            {
+                $this->remove($cP);
+            }
+        }
+
+        if ($data['categories'] != null)
+        {
+            /**
+             * Cria os registros sincronizados com as categorias selecionadas pelo usuário.
+             */
+            foreach ($data['categories'] as $category)
+            {
+                $this->add($data['product_id'], $category);
+            }
+        }
     }
 
     /**
-     * Tem como finalidade verificar o relacionamento entre Produtos e Categorias através da tabela Pivô
-     * @var array
-     * @return boolean
+     * Adiciona um relacionamento entre Produto e Categoria
      */
-    public function verifyRelationship($data)
+    public function add($product_id, $category_id)
     {
-        $model = new Product();
-        $product = $model->findById($data['product_id']);
+        $cP = new CategoryProduct();
+        $cP->product_id = $product_id;
+        $cP->category_id = $category_id;
+        $cP->save();
 
-        $model = new Category();
-        $category = $model->findById($data['category_id']);
+        return $cP;
+    }
 
-        if ($product != null && $category != null)
-        {
-            $model = new CategoryProduct();
-            $relationships = $model->find()->fetch(true);
+    /**
+     * Remove um relacionamento entre Produto e Categoria
+     */
+    public function remove(CategoryProduct $cP)
+    {
+        $cP->destroy();
 
-            $relationAlreadyExists = false;
-
-            foreach ($relationships as $relation)
-            {
-                if ($relation->product_id == $product->id && $relation->category_id == $category->id)
-                {
-                    $relationAlreadyExists = true;
-                }
-            }
-
-            if ($relationAlreadyExists == false)
-            {
-                /**
-                 * Ao retornar como true, sinalizamos a função que ela pode criar o registro.
-                 */
-                return true;
-            } 
-            else 
-            {
-                /**
-                 * Se o relacionamento já existir retornamos false sinalizando para que 
-                 * o registro não seja criado para não duplicar.
-                 */
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
+        return true;
     }
 }

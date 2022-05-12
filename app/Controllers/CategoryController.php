@@ -14,6 +14,14 @@ class CategoryController extends Controller
         echo $this->view->render('categories', ['data' => $data, 'categories' => $categories]);
     }
 
+    public function show($data)
+    {
+        $model = new Category();
+        $category = $model->findById($data['id']);
+
+        echo $this->view->render('show_category', ['data' => $data, 'category' => $category]);
+    }
+
     public function create($data)
     {
         $category = new Category();

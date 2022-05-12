@@ -9,23 +9,23 @@
             <input type="hidden" name="product_id" value="<?=$product->id?>">
             <label for="name">
                 Nome do produto
-                <input type="text" name="name" id="name" value="<?=$product->name?>" required>
+                <input type="text" name="name" id="name" value="<?=$product->name?>" readonly>
             </label>
             <label for="sku">
                 Sku do produto
-                <input type="text" name="sku" id="sku" value="<?=$product->sku?>" required>
+                <input type="text" name="sku" id="sku" value="<?=$product->sku?>" readonly>
             </label>
             <label for="description">
                 Descrição
-                <textarea name="description" id="description" required><?=$product->description?></textarea>
+                <textarea name="description" id="description" readonly><?=$product->description?></textarea>
             </label>
             <label for="quantity">
                 Quantidade
-                <input type="number" name="quantity" id="quantity" step="1" value="<?=$product->quantity?>" required>
+                <input type="number" name="quantity" id="quantity" step="1" value="<?=$product->quantity?>" readonly>
             </label>
             <label for="price">
                 Preço R$
-                <input type="number" name="price" id="price" step="0.01" value="<?=$product->price?>" required>
+                <input type="number" name="price" id="price" step="0.01" value="<?=$product->price?>" readonly>
             </label>
             <h1 class="page-subtitle">Categorias</h1>
             <div class="categories-area">
@@ -33,7 +33,8 @@
                     foreach ($categories as $category)
                     { ?>
                         <div class="category-item">
-                            <input type="checkbox" 
+                            <input type="checkbox"
+                                readonly 
                                 name="categories[]" 
                                 id="category<?=$category->id?>" 
                                 value="<?=$category->id?>" 
@@ -54,7 +55,7 @@
                     <?php }
                 ?>
             </div>
-            <button class="btn" type="submit">Salvar</button>
+            <button class="btn" type="submit" style="display: none;">Salvar</button>
         </form>
     </div>
     

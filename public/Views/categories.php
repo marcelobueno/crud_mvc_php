@@ -23,7 +23,7 @@
                                 <td class="justify-content-start"><?= $category->name ?></td>
                                 <td class="max-200">
                                     <a class="action-btn bg-green" title="Visualizar" 
-                                        href="#"><i class="bi bi-search"></i></a>
+                                        href="<?=URL_BASE?>/categories/show/<?=$category->id?>"><i class="bi bi-search"></i></a>
                                     <a class="action-btn bg-blue" title="Editar" 
                                         href="<?=URL_BASE?>/categories/edit/<?=$category->id?>"><i class="bi bi-pencil"></i></a>
                                     <a class="action-btn bg-red m-0" title="Deletar" 

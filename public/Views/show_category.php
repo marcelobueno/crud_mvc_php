@@ -9,9 +9,9 @@
             <input type="hidden" name="category_id" value="<?=$category->id?>">
             <label for="name">
                 Nome da categoria
-                <input type="text" name="name" id="name" value="<?=$category->name?>" required>
+                <input type="text" name="name" id="name" value="<?=$category->name?>" readonly>
             </label>
-            <button class="btn" type="submit">Salvar</button>
+            <button class="btn" type="submit" style="display: none;">Salvar</button>
         </form>
     </div>
     

@@ -16,6 +16,26 @@ class ProductController extends Controller
         echo $this->view->render('products', ['data' => $data, 'products' => $products]);
     }
 
+    public function show($data)
+    {
+        $model = new Product();
+        $product = $model->findById($data['id'])->data();
+
+        $model = new CategoryProduct();
+        $params = http_build_query(["product_id" => $product->id]);
+        $productCategories = $model->find('product_id = :product_id', $params)->fetch(true);
+
+        $model = new Category();
+        $categories = $model->find()->fetch(true);
+
+        echo $this->view->render('show_product', [
+            'data' => $data, 
+            'product' => $product, 
+            'categories' => $categories,
+            'productCategories' => $productCategories
+        ]);
+    }
+
     public function create($data)
     {
         $product = new Product();
@@ -51,7 +71,6 @@ class ProductController extends Controller
 
     public function update($data)
     {
-        var_dump($data); die;
         $model = new Product();
         $product = $model->findById($data['product_id']);
 
@@ -61,6 +80,10 @@ class ProductController extends Controller
         $product->quantity = $data['quantity'];
         $product->price = $data['price'];
         $product->save();
+
+        $cPC = new CategoryProductController();
+
+        $cPC->sync($data);
 
         header('Location: '.URL_BASE.'/products');
     }
