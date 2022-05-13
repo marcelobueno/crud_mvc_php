@@ -46,8 +46,8 @@ CREATE TABLE IF NOT EXISTS categories_products(
     category_id INT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT fk_product_id FOREIGN KEY (product_id) REFERENCES products (id),
-    CONSTRAINT fk_category_id FOREIGN KEY (category_id) REFERENCES categories (id)
+    CONSTRAINT fk_product_id FOREIGN KEY (product_id) REFERENCES products (id) ON DELETE cascade ON UPDATE cascade,
+    CONSTRAINT fk_category_id FOREIGN KEY (category_id) REFERENCES categories (id) ON DELETE cascade ON UPDATE cascade
 );
 
 /* 
