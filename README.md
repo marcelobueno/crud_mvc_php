@@ -10,6 +10,11 @@ Este CRUD foi feito em PHP no padrão MVC utilizando abstrações para sistema d
 - Criação, listagem, edição e deleção de Categorias.
 - Gestão de relacionamento entre Produtos e Categorias.
 
+## Screenshots
+![](https://i.imgur.com/AcIiLsF.png)
+![](https://i.imgur.com/fdyXu09.png)
+![](https://i.imgur.com/H4zCnh5.png)
+
 
 ## Instalação
 
